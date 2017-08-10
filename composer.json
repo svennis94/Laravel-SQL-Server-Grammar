@@ -1,6 +1,6 @@
 {
     "name": "sebudesign/laravel-sql-server-grammar",
-    "description": "A optimized SQL Server Grammar for Laravel & Lumen",
+    "description": "An optimized SQL Server Grammar for Laravel & Lumen",
     "keywords": ["sqlsrv", "laravel", "lumen", "custom", "sqlserver", "sql"],
     "license": "MIT",
     "authors": [
