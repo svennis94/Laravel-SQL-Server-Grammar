@@ -3,6 +3,8 @@
 namespace SeBuDesign\SqlServerGrammar;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Connection;
+use SeBuDesign\SqlServerGrammar\Extensions\Database\Connections\SqlServerOptimizedConnection;
 
 class SqlServerGrammarServiceProvider extends ServiceProvider
 {
@@ -13,6 +15,8 @@ class SqlServerGrammarServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('db.connection.sqlsrv', 'SeBuDesign\SqlServerGrammar\Extensions\Database\Connections\SqlServerOptimizedConnection');
+        Connection::resolverFor('sqlsrv', function ($connection, $database, $prefix, $config) {
+            return new SqlServerOptimizedConnection($connection, $database, $prefix, $config);
+        });
     }
 }
